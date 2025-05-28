@@ -17,7 +17,7 @@ import streamlit as st
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.header("un oso")
+    st.header("Aprende a tejer!")
     st.image("https://www.amigurumistore.com/wp-content/uploads/2019/11/Oso-Grande-Blanco-Amigurumi-Patron-Gratis-Paso-a-Paso-3.jpg")
 
 with col2:
@@ -25,7 +25,7 @@ with col2:
     st.image("https://img77.uenicdn.com/image/upload/v1576164667/service_images/shutterstock_1099382681.jpg")
 
 with col3:
-    st.header("ánimate a tejer!")
+    st.header("Inicia tus proyectos!")
     st.image("https://patronamigurumi.top/wp-content/uploads/tortuga.jpg")
 
     # Cargar Archivos
@@ -36,6 +36,7 @@ st.title("Carga imágenes de tus proyectos en jpg")
 
 # Widget: file_uploader
 archivo = st.file_uploader("Sube un archivo jpg", type="jpg")
+st.image ()
 
 if archivo:
        st.success("si cargó la imagen!")
