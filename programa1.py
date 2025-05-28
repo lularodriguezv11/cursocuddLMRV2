@@ -1,5 +1,5 @@
 import streamlit as st
-st.title("Caja de sorpresas Checkbox")
+st.title("Caja de sorpresas crochet")
 
 # Widget: checkbox
 mostrar = st.checkbox("Haz click aquí")
