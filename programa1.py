@@ -36,7 +36,6 @@ st.title("Carga imágenes de tus proyectos en jpg")
 
 # Widget: file_uploader
 archivo = st.file_uploader("Sube un archivo jpg", type="jpg")
-st.image ()
 
 if archivo:
        st.success("si cargó la imagen!")
