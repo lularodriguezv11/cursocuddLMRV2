@@ -5,7 +5,7 @@ st.set_page_config(page_title="Ejemplo Chat", layout="centered")
 
 st.title("💬 Mini Chatbot Simón dice!")
 
-st.image("https://www.actividadesdeinfantilyprimaria.com/wp-content/uploads/2025/02/portada-juego-simon-dice.png")
+st.image("https://www.shutterstock.com/shutterstock/photos/2372683083/display_1500/stock-vector-cartoon-illustration-of-a-kids-playing-simon-says-2372683083.jpg")
 
 # Entrada tipo chat (abajo de la pantalla)
 user_input = st.chat_input("Tú primero!...")
