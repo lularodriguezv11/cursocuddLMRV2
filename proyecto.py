@@ -1,7 +1,5 @@
 import streamlit as st
 from openai import OpenAI
-import PyPDF2  # Para leer PDFs
-import docx  # Para leer Word
 
 # Configuración inicial
 st.set_page_config(page_title="Asistente Universitario 📚", page_icon="🎓")
