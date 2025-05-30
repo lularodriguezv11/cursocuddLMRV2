@@ -17,24 +17,36 @@ archivo = st.sidebar.file_uploader("📤 Sube tu tarea (PDF, DOCX o TXT)",
 
 if archivo is None:
     st.sidebar.info("💡 Esperando archivo...")
-if archivo is expected   
+  
     st.success("✅ Archivo cargado correctamente. ¡Puedes hacer preguntas sobre tu tarea!")
 prompt = st.chat_input("Ej: ¿Cuál es el objetivo principal de esta tarea?")
     st.stop()
 
-
-
 # Leer contenido del archivo
 contexto_local = archivo.read().decode("utf-8")
 
-# Entrada del usuario
-prompt = st.chat_input("Haz tu pregunta sobre modelos GPT...")
-if prompt is None:
-    st.stop()
+# Chat interactivo
+st.success("✅ Archivo cargado correctamente. ¡Puedes hacer preguntas sobre tu tarea!")
+prompt = st.chat_input("Ej: ¿Cuál es el objetivo principal de esta tarea?")
 
-# Mostrar entrada del usuario
-with st.chat_message("user", avatar="🦖"):
-    st.markdown(prompt)
+if prompt:
+    # Mostrar pregunta del usuario
+    with st.chat_message("user", avatar="🎓"):
+        st.markdown(prompt)
+
+    # Consultar a OpenAI con el contexto de la tarea
+    respuesta = client.chat.completions.create(
+        model="gpt-4-turbo",  # o "gpt-3.5-turbo" si prefieres
+        messages=[
+            {"role": "system", "content": f"Eres un asistente universitario. Usa este contexto para responder:\n\n{contexto_tarea}"},
+            {"role": "user", "content": prompt}
+        ],
+        temperature=0.3  # Para respuestas más precisas
+    ).choices[0].message.content
+
+    # Mostrar respuesta del asistente
+    with st.chat_message("assistant", avatar="🤖"):
+        st.write(respuesta)
 
 # Consulta a OpenAI con el contexto
 stream = client.chat.completions.create(
