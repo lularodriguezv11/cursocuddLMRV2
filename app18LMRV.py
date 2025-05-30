@@ -11,7 +11,7 @@ openai_api_key = st.secrets["api_key"]
 client = OpenAI(api_key=openai_api_key)
 
 # Subida del archivo de texto
-archivo = st.sidebar.file_uploader("Sube un archivo .txt con el contexto", type="txt")
+archivo = st.sidebar.file_uploader("Carga tu archivo.", type="txt")
 if archivo is None:
     st.sidebar.info("💡 Esperando archivo...")
     st.stop()
@@ -20,12 +20,12 @@ if archivo is None:
 contexto_local = archivo.read().decode("utf-8")
 
 # Entrada del usuario
-prompt = st.chat_input("Haz tu pregunta sobre modelos GPT...")
+prompt = st.sidebar.chat_input("Haz tu pregunta sobre modelos GPT...")
 if prompt is None:
     st.stop()
 
 # Mostrar entrada del usuario
-with st.chat_message("user", avatar="🦖"):
+with st.sidebar.chat_message("user", avatar="🦖"):
     st.markdown(prompt)
 
 # Consulta a OpenAI con el contexto
