@@ -1,7 +1,7 @@
 import streamlit as st
 from openai import OpenAI
 
-st.sidebar.title("💬 Carga tu tarea de Fisicoquímica.")
+st.sidebar.title("💬 Carga tu tarea.")
 
 st.sidebar.write("Sigue las instrucciones para cargar tu archivo.")
 st.sidebar.write("Sube tu tarea y haz preguntas sobre ella.")
