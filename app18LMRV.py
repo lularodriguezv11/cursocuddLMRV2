@@ -11,25 +11,13 @@ openai_api_key = st.secrets["api_key"]
 client = OpenAI(api_key=openai_api_key)
 
 # Subida del archivo de texto
-archivo = st.sidebar.file_uploader("📤 Sube tu tarea (PDF o TXT)", type=["pdf", "txt"])
+archivo = st.file_uploader("Sube un archivo .txt con el contexto", type="txt")
+if archivo is None:
+    st.info("💡 Esperando archivo...")
+    st.stop()
 
-def leer_archivo(archivo):
-    try:
-        if archivo.type == "text/plain":
-            return archivo.read().decode("utf-8")
-        
-        elif archivo.type == "application/pdf":
-            pdf_reader = PyPDF2.PdfReader(archivo)
-            return "\n".join([page.extract_text() for page in pdf_reader.pages])
-        
-        else:
-            st.error("Formato no soportado")
-            return None
-            
-   # Uso:
-contexto_local = leer_archivo(archivo)
-if contexto_local is None:
-    st.stop()  # Detiene la ejecución si hay errores
+# Leer contenido del archivo
+contexto_local = archivo.read().decode("utf-8")
 
 # Entrada del usuario
 prompt = st.chat_input("Haz tu pregunta sobre modelos GPT...")
@@ -54,7 +42,3 @@ stream = client.chat.completions.create(
 respuesta = stream.choices[0].message.content
 with st.chat_message("assistant"):
     st.write(respuesta)
-
-  
-
-
