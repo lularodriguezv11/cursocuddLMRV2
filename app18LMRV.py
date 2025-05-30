@@ -18,12 +18,12 @@ if archivo is None:
 # Leer contenido del archivo
 contexto_local = archivo.read().decode("utf-8")
 
-Entrada del usuario
+# Entrada del usuario
 prompt = st.chat_input("Haz tu pregunta sobre modelos GPT...")
 if prompt is None:
     st.stop()
 
-Mostrar entrada del usuario
+# Mostrar entrada del usuario
 with st.chat_message("user", avatar="🦖"):
     st.markdown(prompt)
 
