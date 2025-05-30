@@ -18,7 +18,7 @@ archivo = st.sidebar.file_uploader("📤 Sube tu tarea (PDF, DOCX o TXT)",
 # Procesamiento del archivo
 contexto_tarea = None
 if archivo is not None:
-    with st.spinner("Procesando tu archivo..."):
+    with st.sidebar.spinner("Procesando tu archivo..."):
         contexto_tarea = leer_archivo(archivo)
     
     if contexto_tarea:
