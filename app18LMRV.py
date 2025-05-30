@@ -11,9 +11,7 @@ openai_api_key = st.secrets["api_key"]
 client = OpenAI(api_key=openai_api_key)
 
 # Subida del archivo de texto
-archivo = st.sidebar.file_uploader("📤 Sube tu tarea (PDF, DOCX o TXT)",
-    type=["txt", "pdf", "docx"],
-    help="Formatos soportados: .txt, .pdf, .docx")
+archivo = st.sidebar.file_uploader("📤 Sube tu tarea (PDF o TXT)", type=["pdf", "txt"])
 
 if archivo is None:
     st.sidebar.info("💡 Esperando archivo...")
