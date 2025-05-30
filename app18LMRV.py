@@ -20,14 +20,6 @@ if archivo is None:
     st.sidebar.success("✅ Archivo cargado correctamente. ¡Puedes hacer preguntas sobre tu tarea!")
 prompt = st.chat_input("Ej: ¿Cuál es el objetivo principal de esta tarea?")
   
-
-# Leer contenido del archivo
-contexto_local = archivo.read().decode("utf-8")
-
-# Chat interactivo
-st.sidebar.success("✅ Archivo cargado correctamente. ¡Puedes hacer preguntas sobre tu tarea!")
-prompt = st.chat_input("Ej: ¿Cuál es el objetivo principal de esta tarea?")
-
 if prompt:
     # Mostrar pregunta del usuario
     with st.chat_message("user", avatar="🎓"):
