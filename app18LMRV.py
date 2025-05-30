@@ -26,11 +26,7 @@ def leer_archivo(archivo):
             st.error("Formato no soportado")
             return None
             
-    except Exception as e:
-        st.error(f"Error al leer {archivo.name}: {str(e)}")
-        return None
-
-# Uso:
+   # Uso:
 contexto_local = leer_archivo(archivo)
 if contexto_local is None:
     st.stop()  # Detiene la ejecución si hay errores
