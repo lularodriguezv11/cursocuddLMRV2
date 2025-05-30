@@ -15,19 +15,36 @@ archivo = st.sidebar.file_uploader("📤 Sube tu tarea (PDF, DOCX o TXT)",
     type=["txt", "pdf", "docx"],
     help="Formatos soportados: .txt, .pdf, .docx")
 
-# Procesamiento del archivo
-contexto_tarea = None
-if archivo is not None:
-    with st.sidebar.spinner("Procesando tu archivo..."):
-        contexto_tarea = leer_archivo(archivo)
-    
-    if contexto_tarea:
-        st.sidebar.success("✅ Archivo cargado correctamente")
-        st.success("¡Puedes hacer preguntas sobre tu tarea!")
-    else:
-        st.sidebar.warning("El archivo no pudo ser procesado")
-else:
-    st.sidebar.info("💡 Esperando archivo...")
+if archivo is None:
+    st.info("💡 Esperando archivo...")
+    st.stop()
+
+# Leer contenido del archivo
+contexto_local = archivo.read().decode("utf-8")
+
+# Entrada del usuario
+prompt = st.chat_input("Haz tu pregunta sobre modelos GPT...")
+if prompt is None:
+    st.stop()
+
+# Mostrar entrada del usuario
+with st.chat_message("user", avatar="🦖"):
+    st.markdown(prompt)
+
+# Consulta a OpenAI con el contexto
+stream = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=[
+        {"role": "system", "content": f"Usa el siguiente contexto para responder:\n\n{contexto_local}"},
+        {"role": "user", "content": prompt}
+    ],
+    max_tokens=800,
+    temperature=0,
+)
+
+respuesta = stream.choices[0].message.content
+with st.chat_message("assistant"):
+    st.write(respuesta)
 
   
 
