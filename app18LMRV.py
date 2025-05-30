@@ -15,14 +15,19 @@ archivo = st.sidebar.file_uploader("📤 Sube tu tarea (PDF, DOCX o TXT)",
     type=["txt", "pdf", "docx"],
     help="Formatos soportados: .txt, .pdf, .docx")
 
+# Procesamiento del archivo
 contexto_tarea = None
 if archivo is not None:
-    with st.sidebar.spinner("Procesando tu archivo..."):
+    with st.spinner("Procesando tu archivo..."):
         contexto_tarea = leer_archivo(archivo)
-
-if contexto_tarea:
+    
+    if contexto_tarea:
         st.sidebar.success("✅ Archivo cargado correctamente")
-        st.sidebar.success("¡Puedes hacer preguntas sobre tu tarea!")
+        st.success("¡Puedes hacer preguntas sobre tu tarea!")
+    else:
+        st.sidebar.warning("El archivo no pudo ser procesado")
+else:
+    st.sidebar.info("💡 Esperando archivo...")
 
   
 
