@@ -1,4 +1,4 @@
-Fisicoquimport streamlit as st
+import streamlit as st
 from openai import OpenAI
 
 st.sidebar.title("💬 Carga tu tarea de Fisicoquímica.")
