@@ -22,11 +22,8 @@ if archivo is not None:
 
 if contexto_tarea:
         st.sidebar.success("✅ Archivo cargado correctamente")
-        st.success("¡Puedes hacer preguntas sobre tu tarea!")
-else:
-        st.sidebar.warning("El archivo no pudo ser procesado")
-else:
-    st.sidebar.info("💡 Esperando archivo...")  
+        st.sidebar.success("¡Puedes hacer preguntas sobre tu tarea!")
+
   
 
 
