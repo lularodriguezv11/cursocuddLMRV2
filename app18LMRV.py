@@ -3,14 +3,14 @@ from openai import OpenAI
 
 st.sidebar.title("💬 Carga tu tarea de Fisicoquímica.")
 
-st.sidebar.write("sigue las instrucciones para cargar tu archivo.")
+st.sidebar.write("Sigue las instrucciones para cargar tu archivo.")
 st.sidebar.image("escudo.png")
 
 openai_api_key = st.secrets["api_key"]
 client = OpenAI(api_key=openai_api_key)
 
 # Subida del archivo de texto
-archivo = st.sidebar.file_uploader("Sube un archivo .txt con el contexto", type="txt")
+archivo = st.sidebar.file_uploader("Carga tu archivo", type="txt")
 if archivo is None:
     st.sidebar.info("💡 Esperando archivo...")
     st.stop()
