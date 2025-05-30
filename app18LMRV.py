@@ -16,7 +16,7 @@ archivo = st.sidebar.file_uploader("📤 Sube tu tarea (PDF, DOCX o TXT)",
     help="Formatos soportados: .txt, .pdf, .docx")
 
 if archivo is None:
-    st.info("💡 Esperando archivo...")
+    st.sidebar.info("💡 Esperando archivo...")
     st.stop()
 
 # Leer contenido del archivo
