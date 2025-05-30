@@ -11,9 +11,9 @@ openai_api_key = st.secrets["api_key"]
 client = OpenAI(api_key=openai_api_key)
 
 # Subida del archivo de texto
-archivo = st.file_uploader("Sube un archivo .txt con el contexto", type="txt")
+archivo = st.sidebar.file_uploader("Sube un archivo .txt con el contexto", type="txt")
 if archivo is None:
-    st.info("💡 Esperando archivo...")
+    st.sidebar.info("💡 Esperando archivo...")
     st.stop()
 
 # Leer contenido del archivo
