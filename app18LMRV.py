@@ -1,9 +1,9 @@
 import streamlit as st
 from openai import OpenAI
 
-st.sidebar.title("💬 Chatbot con contexto desde archivo")
+st.sidebar.title("💬 Chatbot carga tu tarea.")
 
-st.sidebar.write("Este es el sidebar")
+st.sidebar.write("sigue las instrucciones para cargar tu archivo.")
 st.sidebar.image("escudo.png")
 
 openai_api_key = st.secrets["api_key"]
