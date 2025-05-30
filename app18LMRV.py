@@ -17,11 +17,11 @@ archivo = st.sidebar.file_uploader("📤 Sube tu tarea (PDF, DOCX o TXT)",
 
 if archivo is None:
     st.sidebar.info("💡 Esperando archivo...")
-  
+  st.stop()
+
     st.success("✅ Archivo cargado correctamente. ¡Puedes hacer preguntas sobre tu tarea!")
 prompt = st.chat_input("Ej: ¿Cuál es el objetivo principal de esta tarea?")
-    st.stop()
-
+  
 # Leer contenido del archivo
 contexto_local = archivo.read().decode("utf-8")
 
