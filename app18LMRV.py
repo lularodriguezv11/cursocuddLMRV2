@@ -4,6 +4,7 @@ from openai import OpenAI
 st.sidebar.title("💬 Carga tu tarea de Fisicoquímica.")
 
 st.sidebar.write("Sigue las instrucciones para cargar tu archivo.")
+st.sidebar.write("Sube tu tarea y haz preguntas sobre ella.")
 st.sidebar.image("escudo.png")
 
 openai_api_key = st.secrets["api_key"]
@@ -13,6 +14,7 @@ client = OpenAI(api_key=openai_api_key)
 archivo = st.sidebar.file_uploader("Carga tu archivo PDF", type="PDF")
 if archivo is None:
     st.sidebar.info("💡 Esperando archivo...")
+    st.sidebar.success("si cargó tu archivo")
     st.stop()
 
 # Leer contenido del archivo
