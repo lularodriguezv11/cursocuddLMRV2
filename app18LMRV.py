@@ -17,7 +17,7 @@ archivo = st.sidebar.file_uploader("📤 Sube tu tarea (PDF, DOCX o TXT)",
 
 if archivo is None:
     st.sidebar.info("💡 Esperando archivo...")
-    st.success("✅ Archivo cargado correctamente. ¡Puedes hacer preguntas sobre tu tarea!")
+    st.sidebar.success("✅ Archivo cargado correctamente. ¡Puedes hacer preguntas sobre tu tarea!")
 prompt = st.chat_input("Ej: ¿Cuál es el objetivo principal de esta tarea?")
   
 
@@ -25,7 +25,7 @@ prompt = st.chat_input("Ej: ¿Cuál es el objetivo principal de esta tarea?")
 contexto_local = archivo.read().decode("utf-8")
 
 # Chat interactivo
-st.success("✅ Archivo cargado correctamente. ¡Puedes hacer preguntas sobre tu tarea!")
+st.sidebar.success("✅ Archivo cargado correctamente. ¡Puedes hacer preguntas sobre tu tarea!")
 prompt = st.chat_input("Ej: ¿Cuál es el objetivo principal de esta tarea?")
 
 if prompt:
