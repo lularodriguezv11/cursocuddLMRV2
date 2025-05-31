@@ -4,7 +4,7 @@ from openai import OpenAI
 st.sidebar.title("💬 Carga tu tarea.")
 
 st.sidebar.write("Sigue las instrucciones para cargar tu archivo.")
-st.sidebar.write("Sube tu tarea y haz preguntas sobre ella.")
+st.sidebar.write("Genera preguntas al azar sobre el tema visto en clase.")
 st.sidebar.image("escudo.png")
 
 openai_api_key = st.secrets["api_key"]
