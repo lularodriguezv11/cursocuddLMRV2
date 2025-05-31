@@ -29,7 +29,7 @@ with st.sidebar.chat_message("user", avatar="🦖"):
     st.markdown(prompt)
 
 # Consulta a OpenAI con el contexto
-stream = client.chat.completions.create(
+stream = client.sidebar.chat.completions.create(
     model="gpt-4o-mini",
     messages=[
         {"role": "system", "content": f"Usa el siguiente contexto para responder:\n\n{contexto_local}"},
